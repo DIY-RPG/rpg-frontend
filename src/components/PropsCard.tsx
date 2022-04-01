@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Ability } from "../Structs";
 import './components.css'
 
-export const PropsCard = (props:Ability) => {
+export const PropsCard = (props: any) => {
 
     return (
        <div className="props-card">

@@ -6,7 +6,7 @@ export const StatCard = (props:Ability) => {
 
     return (
        <div className="stat-card">
-           <text>{props}</text>
+           <text>{props.label}</text>
            <div className="stat-value">
                <text>{props.value}</text>
             </div>
