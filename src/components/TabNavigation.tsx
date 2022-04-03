@@ -5,7 +5,7 @@ import Character, { CharacterState } from '../Character';
 import CharacterActionInterface from "../characterComponents/ActionCard";
 import CharacterAction from "../characterComponents/ActionCard";
 import { Item } from "../Structs";
-import CharacterSpellInterface from "../characterComponents/SpellCard";
+import CharacterSpellInterface, { CharacterSpell } from "../characterComponents/SpellCard";
 
 export class CharacterTabs extends React.Component<CharacterState> {
 
@@ -15,6 +15,7 @@ export class CharacterTabs extends React.Component<CharacterState> {
 
     state = {
         actions: this.props.actions,
+        spells: this.props.spells,
     }
 
     componentDidMount() {
@@ -24,7 +25,7 @@ export class CharacterTabs extends React.Component<CharacterState> {
 
     render(): JSX.Element{
     return (
-        <div style={{margin:'14px'}}>
+        <div style={{margin:'20px'}}>
         <Tabs>
             <TabList>
             <Tab>Actions</Tab>
@@ -37,7 +38,6 @@ export class CharacterTabs extends React.Component<CharacterState> {
                 {
                     showActions(this.state.actions)
                 } 
-
             </TabPanel>
             <TabPanel>
             <h2>Spells content</h2>
@@ -57,6 +57,12 @@ export class CharacterTabs extends React.Component<CharacterState> {
 function showActions(actions:any){
     return actions.map((action:CharacterActionInterface) => {
         return <CharacterAction {... action}/>
+    })
+}
+
+function showSpells(spells:any){
+    return spells.map((spell:CharacterSpellInterface) => {
+       // return <CharacterSpell {... spell}/>
     })
 }
 
