@@ -7,6 +7,8 @@ export type Schools = "Abjuration"|"Conjuration"|"Divination"|"Enchantment"|"Evo
 
 export type DamageType = "Acid"|"Bludgeoning"|"Cold"|"Fire"|"Force"|"Lightning"|"Necrotic"|"Piercing"|"Poison"|"Psychic"|"Radiant"|"Slashing"|"Thunder";
 
+export type SpellGrade = "Cantrip"|"1st"|"2nd"|"3rd"|"4th"|"5th"|"6th"|"7th"|"8th"|"9th"
+
 export type Ability = {
     label:  "STR" | "DEX" | "CON" | "INT" | "WIS" | "CHA" ;
     name: "Strength" | "Dexterity" | "Constitution" | "Intelligence" | "Wisdom" | "Charisma" ;
@@ -69,7 +71,7 @@ export const MainStats : Map<number, string> = new Map([
     [ 5 , "Charisma"],
 ]);
 
-export const SpellGrade : Map<number, string> = new Map([
+export const SpellGradeMap : Map<number, string> = new Map([
     [0, "Cantrip"],
     [1, "1st-level"],
     [2, "2nd-level"],
@@ -81,6 +83,13 @@ export const SpellGrade : Map<number, string> = new Map([
     [8, "8th-level"],
     [9, "9th-level"],
 ]);
+
+export interface SavingThrow {
+    stat: Stat;
+    value: number;
+    modifier: Stat;
+    proficient: Boolean;
+}
 
 export const SpellSchool : Map<number, Schools> = new Map([
     [0, "Abjuration"],
