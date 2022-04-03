@@ -1,21 +1,31 @@
 import React from 'react';
 // import  from 'react-bootstrap';
-import {Ability, CharacterAbilities, CharacterActionType, DamageType, Schools, SpellGrade, SpellComponents, SpellSchool, MainStats, Damage } from '../Structs';
+import {Ability,
+     CharacterAbilities, 
+     CharacterActionType, 
+     DamageType, 
+     Schools, 
+     SpellGrade, 
+     SpellComponents, 
+     SpellSchool, 
+     MainStats, 
+     Damage, 
+     SavingThrow } from '../Structs';
 
 export interface CharacterSpellInterface {
     name: string;
     school : Schools;
     range : number | string;
-    grade : typeof SpellGrade;
-    castingTime : number;
+    grade : SpellGrade;
+    castingTime : number | string;
     components : Array<string>;
     duration : number | string;
     description?: string;
     attackBonus: number | string;
-    ability: Ability;
+    savingThrow: SavingThrow;
     damage: {
         type: DamageType;
-        amount: number;
+        amount: number | string;
     };
     notes?: string;
 };
@@ -34,7 +44,7 @@ export class CharacterSpell extends React.Component<CharacterSpellInterface, Cha
             duration: this.props.duration,
             description: this.props.description,
             attackBonus: this.props.attackBonus,
-            ability: this.props.ability,
+            savingThrow: this.props.savingThrow,
             damage: this.props.damage,
             notes: this.props.notes
         };
@@ -43,81 +53,35 @@ export class CharacterSpell extends React.Component<CharacterSpellInterface, Cha
     render(): JSX.Element {
 
     return (
+        //Show spell card with all the info
         <div>
-            <div>
-                <label>Name:</label>
-                <input type="text" value={this.state.name} onChange={(e) => this.setState({name: e.target.value})}/>
+        <div className="action-card">
+            <div className="name-action">
+                <h2>{this.props.name}</h2>
+                <h3>{this.props.school}</h3>
             </div>
-            <div>
-                <label>School:</label>
-                {/* <select value={this.state.school} onChange={(e) => this.setState({school: e.target.value})}>
-                    <option value="Abjuration">Abjuration</option>
-                    <option value="Conjuration">Conjuration</option>
-                    <option value="Divination">Divination</option>
-                    <option value="Enchantment">Enchantment</option>
-                    <option value="Evocation">Evocation</option>
-                    <option value="Illusion">Illusion</option>
-                    <option value="Necromancy">Necromancy</option>
-                    <option value="Transmutation">Transmutation</option>
-                </select> */}
-                <select>
-                    {
-                        Object.keys(SpellSchool).map((key, index) => {
-                            return <option value={key}>{SpellSchool.get(index)}</option>
-                        })
-                    }
-                </select>
-            </div>
-            <div>
-                <label>Range:</label>
-                <input type="number" value={this.state.range} onChange={(e) => this.setState({range: e.target.value})}/>
-            </div>
-            <div>
-                <label>Casting Time:</label>
-                <input type="number" value={this.state.castingTime} onInput={(e) => this.setState({castingTime: e.currentTarget.valueAsNumber})}/>
-            </div>
-            <div>
-                <label>Components:</label>
-
-            </div>
-            <div>
-                <label>Duration:</label>
-                <input type="number" value={this.state.duration} onInput={(e) => this.setState({duration: e.currentTarget.value})}/>
-            </div>
-            <div>
-                <label>Description:</label>
-                <input type="text" value={this.state.description} onChange={(e) => this.setState({description: e.target.value})}/>
-            </div>
-            <div>
-                <label>Attack Bonus:</label>
-                <input type="text" value={this.state.attackBonus} onChange={(e) => this.setState({attackBonus: e.target.value})}/>
-            </div>
-            <div>
-                <label>Ability:</label>
-                <select>
-                {
-                    Object.keys(MainStats).map((key, index) => {
-                        return <option value={key}>{MainStats.get(index)} </option>
-                    })
-                }
-                </select>
-            </div>
-            <div>
-                <label>Damage:</label>
-                <select>
-                {
-                    Object.keys(Damage).map((key, index) => {
-                        return <input type="radio" name="damage" value={key}/>
-                    })
-                }
-                </select>
-            </div>
-            <div>
-                <label>Notes:</label>
-                <textarea value={this.state.notes} onChange={(e) => this.setState({notes: e.target.value})}/>
+            <div className="action-stats">
+                <div className="action-stats-row">
+                    <div className="action-stats-row-item">
+                        <h3>Range</h3>
+                        <p>{this.props.range}</p>
+                    </div>
+                    <div className="action-stats-row-item">
+                        <h3>To Hit</h3>
+                        <button>{this.props.savingThrow}</button>
+                    </div>
+                    <div className="action-stats-row-item">
+                        <h3>Damage</h3>
+                        <button>{this.props.damage}</button>
+                    </div>
+                    <div className="action-stats-row-item">
+                        <h3>Damage Type</h3>
+                        <p>{this.props.damage.type}</p>  
+                    </div>
+                </div>
             </div>
         </div>
-
+    </div>    
         );
     }
 }
