@@ -1,6 +1,6 @@
 import './App.css';
 import Character from './Character';
-import './character.css'
+import './characterComponents/character.css';
 
 function App() {
   return (
