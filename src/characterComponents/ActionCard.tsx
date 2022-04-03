@@ -1,6 +1,8 @@
 import { AnyRecord } from 'dns';
 import React from 'react';
 import {Ability, CharacterAbilities, CharacterActions, CharacterActionType, Damage, DamageType, MainStats} from '../Structs';
+import './content.css'
+import './character.css'
 
 export interface CharacterActionInterface {
     name?: string;
@@ -55,9 +57,31 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
     return (
         //Show Action Card
         <div>
-            <div>
-                <label>{this.props.name}</label>
-                <h1>{this.props.type}</h1>
+            <div className="action-card">
+                <div className="name-action">
+                    <h2>{this.props.name}</h2>
+                    <h3>{this.props.type}</h3>
+                </div>
+                <div className="action-stats">
+                    <div className="action-stats-row">
+                        <div className="action-stats-row-item">
+                            <h3>Range</h3>
+                            <p>{this.props.range}</p>
+                        </div>
+                        <div className="action-stats-row-item">
+                            <h3>To Hit</h3>
+                            <button>{this.props.toHit}</button>
+                        </div>
+                        <div className="action-stats-row-item">
+                            <h3>Damage</h3>
+                            <button>{this.props.damage}</button>
+                        </div>
+                        <div className="action-stats-row-item">
+                            <h3>Damage Type</h3>
+                            <p>{this.props.damageType}</p>  
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
