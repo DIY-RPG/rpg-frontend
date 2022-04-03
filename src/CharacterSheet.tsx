@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import './character.css'
+import './characterComponents/character.css'
 import './components/components.css'
 import {Ability, CharacterAbilities, CharacterActionType, DamageType, MainStats, Stat} from "./Structs";
 import StatCard from './components/StatCard'
@@ -8,8 +8,6 @@ import PropsCard from "./components/PropsCard"
 import {CharacterTabs} from"./components/TabNavigation";
 import ActionCard, { CharacterActionInterface } from "./characterComponents/ActionCard"
 import Character, { CharacterState } from "./Character";
-import { stat } from "fs/promises";
-import { Stats } from "fs";
 
 class CharacterSheet extends Component {
     constructor(props: CharacterState) {
@@ -41,12 +39,12 @@ export const CharacterView = (props: CharacterState) => {
 
         return (
             <div className="stat-container">
-                <StatCard label="STR" name="Strength" value={stats.STR?.value } modifier={stats.STR?.modifier} proficient={stats.STR?.proficient}/>
-                <StatCard label="DEX" name="Dexterity" value={stats.DEX?.value } modifier={stats.DEX?.modifier} proficient={stats.DEX?.proficient}/>
-                <StatCard label="CON" name="Constitution" value={stats.CON?.value } modifier={stats.CON?.modifier} proficient={stats.CON.proficient}/>
-                <StatCard label="INT" name="Intelligence" value={stats.INT?.value } modifier={stats.INT?.modifier} proficient={stats.INT?.proficient}/>
-                <StatCard label="WIS" name="Wisdom" value={stats.WIS?.value } modifier={stats.WIS?.modifier} proficient={stats.WIS?.proficient}/>
-                <StatCard label="CHA" name="Charisma" value={stats.CHA?.value } modifier={stats.CHA?.modifier} proficient={stats.CHA?.proficient}/>
+                <StatCard {... stats.STR}/>
+                <StatCard {... stats.DEX}/>
+                <StatCard {... stats.CON}/>
+                <StatCard {... stats.INT}/>
+                <StatCard {... stats.WIS}/>
+                <StatCard {... stats.CHA}/>
             </div>
         );
     }
@@ -67,12 +65,10 @@ export const CharacterView = (props: CharacterState) => {
                         <text> Race </text>
                         <text>SubClass 1</text>
                     </div>
-
                     <div className="info-details">
                         <text> Background </text>
                         <text>Alignment</text>
                     </div>
-            
                     <div className="info-details">
                         <text> Experience </text>
                         <text>{props.XP}</text>
@@ -81,22 +77,9 @@ export const CharacterView = (props: CharacterState) => {
                         <text> Proficiency </text>
                         <text>{props.proficiencies.bonus}</text>
                     </div>
-            
                     <div className="info-details">
                         <text> Speed </text>
                         <text>{props.speed}</text>
-                    </div>
-                    <div className="info-details">
-                        <text> Initiative </text>
-                        <text>{props.initiative}</text>
-                    </div>
-                    <div className="info-details">
-                        <text> HP </text>
-                        <text>{props.HP}</text>
-                    </div>
-                    <div className="info-details">
-                        <text> AC </text>
-                        <text>{props.AC}</text>
                     </div>
                     <div className="info-details">
                         <text> Initiative </text>
