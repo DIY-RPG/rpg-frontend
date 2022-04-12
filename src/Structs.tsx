@@ -20,7 +20,7 @@ export type Ability = {
 export interface Skill {
     name: "Acrobatics"|"Animal Handling"|"Arcana"|"Athletics"|"Deception"|"History"|"Insight"|"Intimidation"|"Investigation"|"Medicine"|"Nature"|"Perception"|"Performance"|"Persuasion"|"Religion"|"Sleight of Hand"|"Stealth"|"Survival";
     value?: number;
-    modifier?: number;
+    modifier: Ability;
     proficient?: Boolean;
 }
 
