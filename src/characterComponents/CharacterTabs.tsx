@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import './CharacterTabs.css';
-import CharacterSheetInterface, { CharacterState } from '../pages/CharacterSheetInterface';
+import Character, { CharacterState } from '../pages/Character';
 import CharacterActionInterface from "./ActionCard";
 import CharacterAction from "./ActionCard";
 import { Item } from "../Structs";

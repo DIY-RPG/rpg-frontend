@@ -86,8 +86,9 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
                 <select>
                     {
                         Object.keys(MainStats).map((key, index) => {
-                            return <option value={key}>{MainStats.get(index)} </option>
-                        })
+                                return <option value={key}>{MainStats.get(index)} </option>
+                            }
+                        )
                     }
                 </select>
             </div>

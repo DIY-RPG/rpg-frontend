@@ -1,11 +1,11 @@
 import './CharacterSheet.css'
 import React, {Component} from "react";
-import StatCard from '../characterComponents/StatCard'
-import HPCard from "../characterComponents/HealthCard";
-import PropsCard from "../characterComponents/PropsCard"
-import {CharacterTabs} from "../characterComponents/CharacterTabs";
-import ActionCard, { CharacterActionInterface } from "../characterComponents/ActionCard"
-import CharacterSheetInterface, { CharacterState } from "./CharacterSheetInterface";
+import StatCard from './StatCard'
+import HPCard from "./HealthCard";
+import PropsCard from "./PropsCard"
+import {CharacterTabs} from "./CharacterTabs";
+import ActionCard, { CharacterActionInterface } from "./ActionCard"
+import Character, { CharacterState } from "../pages/Character";
 import {Ability, CharacterAbilities, CharacterActionType, DamageType, MainStats, Stat} from "../Structs";
 
 class CharacterSheet extends Component {
@@ -30,7 +30,6 @@ class CharacterSheet extends Component {
 }
 
 export const CharacterView = (props: CharacterState) => {
-
     const character  = props;
     const stats = character.stats;
     const actions = character.actions;

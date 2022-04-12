@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import CharacterAction, { CharacterActionInterface } from "../characterComponents/ActionCard";
 import { CharacterSpell, CharacterSpellInterface } from "../characterComponents/SpellCard";
-import CharacterSheet from "./CharacterSheet";
+import CharacterSheet from "../characterComponents/CharacterSheet";
 import { Stat, DefaultColors, Ability, CharacterAbilities, CharacterSkills, Item, SpellGradeMap, SpellGrade} from "../Structs";
 
-export interface  CharacterProps {
+export interface CharacterProps {
     user_id: string;
 }
 
-export interface  CharacterState {
-
+export interface CharacterState {
     id: string;
     name: string;
     characterClass: string;
@@ -55,11 +54,9 @@ export interface  CharacterState {
         currency?: Array<string>;
         personalityTraits?: Array<string>;
     };
-
-
 }
 
-class CharacterSheetInterface extends Component< CharacterProps,  CharacterState> {
+class Character extends Component< CharacterProps,  CharacterState> {
     state:  CharacterState = {
         id: "123456",
         name: "Lazarous Blackstar",
@@ -303,4 +300,4 @@ class CharacterSheetInterface extends Component< CharacterProps,  CharacterState
     }
 }
 
-export default CharacterSheetInterface;
+export default Character;
