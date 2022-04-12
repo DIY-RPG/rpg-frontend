@@ -62,9 +62,10 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
                 <label>Type:</label>
                 <select>
                     {
-                        Object.keys(CharacterActions).map((key, index) => {
-                            return <option value={key}>{CharacterActions.get(index)}</option>
-                        })
+                        CharacterActions.map((key) => {
+                                return <option value={key}>{key}</option>
+                            }
+                        )
                     }
                 </select>
             </div>
@@ -85,8 +86,8 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
                 <label>Ability:</label>
                 <select>
                     {
-                        Object.keys(MainStats).map((key, index) => {
-                                return <option value={key}>{MainStats.get(index)} </option>
+                        MainStats.map((key) => {
+                                return <option value={key}>{key}</option>
                             }
                         )
                     }
@@ -96,9 +97,10 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
                 <label>Damage:</label>
                 <select>
                     {
-                        Object.keys(Damage).map((key, index) => {
-                            return <input type="radio" name="damage" value={key}/>
-                        })
+                        Damage.map((key) => {
+                                return <option value={key}>{key}</option>
+                            }
+                        )
                     }
                 </select>
             </div>

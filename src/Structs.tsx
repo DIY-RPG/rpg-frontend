@@ -62,16 +62,16 @@ export interface CharacterHP {
     tmp: number;
 }
 
-export const MainStats : Map<number, string> = new Map([
-    [ 0 , "Strength"],
-    [ 1 , "Dexterity"],
-    [ 2 , "Constitution"],
-    [ 3 , "Intelligence"],
-    [ 4 , "Wisdom"],
-    [ 5 , "Charisma"],
-]);
+export const MainStats: Array<string> = [
+    "Strength",
+    "Dexterity",
+    "Constitution",
+    "Intelligence",
+    "Wisdom",
+    "Charisma",
+];
 
-export const SpellGradeMap : Map<number, string> = new Map([
+export const SpellGradeMap: Map<number, string> = new Map([
     [0, "Cantrip"],
     [1, "1st-level"],
     [2, "2nd-level"],
@@ -91,16 +91,16 @@ export interface SavingThrow {
     proficient: Boolean;
 }
 
-export const SpellSchool : Map<number, Schools> = new Map([
-    [0, "Abjuration"],
-    [1, "Conjuration"],
-    [2, "Divination"],
-    [3, "Enchantment"],
-    [4, "Evocation"],
-    [5, "Illusion"],
-    [6, "Necromancy"],
-    [7, "Transmutation"],
-]);
+export const SpellSchool : Array<Schools> = [
+    "Abjuration",
+    "Conjuration",
+    "Divination",
+    "Enchantment",
+    "Evocation",
+    "Illusion",
+    "Necromancy",
+    "Transmutation",
+];
 
 
 export const SpellComponents = [
@@ -119,32 +119,32 @@ export const SpellComponents = [
     }
 ];
 
-export const Damage : Map<number, string> = new Map([
-    [0, "Acid"],
-    [1, "Bludgeoning"],
-    [2, "Cold"],
-    [3, "Fire"],
-    [4, "Force"],
-    [5, "Lightning"],
-    [6, "Necrotic"],
-    [7, "Piercing"],
-    [8, "Poison"],
-    [9, "Psychic"],
-    [10, "Radiant"],
-    [11, "Slashing"],
-    [12, "Thunder"],
-]);
+export const Damage: Array<string> = [
+    "Acid",
+    "Bludgeoning",
+    "Cold",
+    "Fire",
+    "Force",
+    "Lightning",
+    "Necrotic",
+    "Piercing",
+    "Poison",
+    "Psychic",
+    "Radiant",
+    "Slashing",
+    "Thunder",
+];
 
-export const CharacterActions : Map<number, string> = new Map([
-    [0, "Melee"],
-    [1, "Ranged"],
-    [2, "Spell"],
-    [3, "Power"],
-    [4, "Special"],
-    [5, "Potion"],
-    [6, "Magic Item"],
-    [7, "Other"],
-]);
+export const CharacterActions: Array<string> = [
+    "Melee",
+    "Ranged",
+    "Spell",
+    "Power",
+    "Special",
+    "Potion",
+    "Magic Item",
+    "Other",
+];
 
 
 
@@ -169,7 +169,7 @@ export let ItemTypes = [
     "Other"
 ] as const
 
-export type DefaultColors = ""| "red" | "orange" | "yellow" | "green" | "blue" | "indigo" | "violet"| "black"| "white"| "brown"| "gray"| "purple"| "pink"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon";
+export type DefaultColors = ""| "red" | "orange" | "yellow" | "green" | "blue" | "indigo" | "violet"| "black"| "white"| "gray"| "purple"| "pink"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "brown"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon"| "navy"| "aqua"| "silver"| "gold"| "gray"| "black"| "white"| "tan"| "olive"| "teal"| "lime"| "maroon";
 
 export const DefaultColorsMap: Map<string, string> = new Map([
     ['red', '#ff0000'],
