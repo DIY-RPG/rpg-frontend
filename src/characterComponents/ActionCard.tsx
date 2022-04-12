@@ -1,12 +1,10 @@
-import { AnyRecord } from 'dns';
 import React from 'react';
 import {Ability, CharacterAbilities, CharacterActions, CharacterActionType, Damage, DamageType, MainStats} from '../Structs';
-import './content.css'
-import './character.css'
+import './ActionCard.css'
 
 export interface CharacterActionInterface {
     name?: string;
-    type?: CharacterActionType; 
+    type?: CharacterActionType;
     range?:  number | string;
     toHit?: number | string;
     damage?: number | string;
@@ -22,9 +20,9 @@ export interface CharacterActionInterface {
     criticalDamageType?: DamageType;
     criticalDescription?: string;
     notes?: string;
-};
+}
 
-///Resolve this any
+// Resolve this any
 export class CharacterAction extends React.Component<any, CharacterActionInterface>{
 
     constructor(props: CharacterActionInterface) {
@@ -48,7 +46,7 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
             criticalDescription: this.props.criticalDescription,
             notes: this.props.notes
         };
-            
+
     }
 
 
@@ -78,7 +76,7 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
                         </div>
                         <div className="action-stats-row-item">
                             <h3>Damage Type</h3>
-                            <p>{this.props.damageType}</p>  
+                            <p>{this.props.damageType}</p>
                         </div>
                     </div>
                 </div>
@@ -88,5 +86,5 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
         );
     }
 }
- 
+
 export default CharacterAction;

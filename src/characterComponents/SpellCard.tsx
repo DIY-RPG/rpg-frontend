@@ -1,15 +1,16 @@
 import React from 'react';
+import './SpellCard.css'
 // import  from 'react-bootstrap';
 import {Ability,
-     CharacterAbilities, 
-     CharacterActionType, 
-     DamageType, 
-     Schools, 
-     SpellGrade, 
-     SpellComponents, 
-     SpellSchool, 
-     MainStats, 
-     Damage, 
+     CharacterAbilities,
+     CharacterActionType,
+     DamageType,
+     Schools,
+     SpellGrade,
+     SpellComponents,
+     SpellSchool,
+     MainStats,
+     Damage,
      SavingThrow } from '../Structs';
 
 export interface CharacterSpellInterface {
@@ -76,14 +77,14 @@ export class CharacterSpell extends React.Component<CharacterSpellInterface, Cha
                     </div>
                     <div className="action-stats-row-item">
                         <h3>Damage Type</h3>
-                        <p>{this.props.damage.type}</p>  
+                        <p>{this.props.damage.type}</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>    
+    </div>
         );
     }
 }
- 
+
 export default CharacterSpell;

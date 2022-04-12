@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import CharacterAction, { CharacterActionInterface } from "./characterComponents/ActionCard";
-import { CharacterSpell, CharacterSpellInterface } from "./characterComponents/SpellCard";
+import CharacterAction, { CharacterActionInterface } from "../characterComponents/ActionCard";
+import { CharacterSpell, CharacterSpellInterface } from "../characterComponents/SpellCard";
 import CharacterSheet from "./CharacterSheet";
-import { Stat, DefaultColors, Ability, CharacterAbilities, CharacterSkills, Item, SpellGradeMap, SpellGrade} from "./Structs";
+import { Stat, DefaultColors, Ability, CharacterAbilities, CharacterSkills, Item, SpellGradeMap, SpellGrade} from "../Structs";
 
 export interface  CharacterProps {
-
     user_id: string;
-
 }
 
 export interface  CharacterState {
@@ -61,8 +59,7 @@ export interface  CharacterState {
 
 }
 
-
-class Character extends Component< CharacterProps,  CharacterState> {
+class CharacterSheetInterface extends Component< CharacterProps,  CharacterState> {
     state:  CharacterState = {
         id: "123456",
         name: "Lazarous Blackstar",
@@ -130,16 +127,16 @@ class Character extends Component< CharacterProps,  CharacterState> {
                     proficient: true,
                     },
                 description: "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot radius must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one. The fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried.",
-                attackBonus : 5, 
+                attackBonus : 5,
                 damage: {
                     type: "Fire",
                     amount: "3d6",
                 },
                 notes: "",
-                
+
 
             },
-            
+
         ],
         inventory: [],
         equipment: [],
@@ -271,7 +268,7 @@ class Character extends Component< CharacterProps,  CharacterState> {
             spellBonus: 0,
             other: []
         },
-        
+
         details : {
             subClass: "",
             race: "",
@@ -306,4 +303,4 @@ class Character extends Component< CharacterProps,  CharacterState> {
     }
 }
 
-export default Character;
+export default CharacterSheetInterface;

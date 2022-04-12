@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { Ability } from "../Structs";
-import './components.css'
+import './PropsCard.css'
 
 export const PropsCard = (props: any) => {
 

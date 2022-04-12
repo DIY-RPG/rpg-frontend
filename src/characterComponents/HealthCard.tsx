@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { CharacterHP } from "../Structs";
-import './components.css'
+import './HealthCard.css'
 
 export const HPCard = (props:CharacterHP) => {
 

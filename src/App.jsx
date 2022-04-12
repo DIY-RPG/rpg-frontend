@@ -1,12 +1,12 @@
 import './App.css';
-import Character from './Character';
-import './characterComponents/character.css';
+import CharacterSheetInterface from './pages/CharacterSheetInterface';
+import './characterComponents/ActionCard.css';
 
 function App() {
   return (
-    <div className="background-containter"> 
+    <div className="background-container">
       <div className="main-container">
-         <Character/>
+         <CharacterSheetInterface/>
         </div>
     </div>
   );

@@ -1,10 +1,10 @@
-import { AnyRecord } from 'dns';
 import React from 'react';
+import './CreateAction.css';
 import {Ability, CharacterAbilities, CharacterActions, CharacterActionType, Damage, DamageType, MainStats} from '../Structs';
 
 export interface CharacterActionInterface {
     name?: string;
-    type?: CharacterActionType; 
+    type?: CharacterActionType;
     range?:  number | string;
     toHit?: number | string;
     damage?: number | string;
@@ -20,9 +20,9 @@ export interface CharacterActionInterface {
     criticalDamageType?: DamageType;
     criticalDescription?: string;
     notes?: string;
-};
+}
 
-///Resolve this any
+// Resolve this any
 export class CharacterAction extends React.Component<any, CharacterActionInterface>{
 
     constructor(props: CharacterActionInterface) {
@@ -46,7 +46,7 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
             criticalDescription: this.props.criticalDescription,
             notes: this.props.notes
         };
-            
+
     }
 
 
@@ -84,21 +84,21 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
             <div>
                 <label>Ability:</label>
                 <select>
-                {
-                    Object.keys(MainStats).map((key, index) => {
-                        return <option value={key}>{MainStats.get(index)} </option>
-                    })
-                }
+                    {
+                        Object.keys(MainStats).map((key, index) => {
+                            return <option value={key}>{MainStats.get(index)} </option>
+                        })
+                    }
                 </select>
             </div>
             <div>
                 <label>Damage:</label>
                 <select>
-                {
-                    Object.keys(Damage).map((key, index) => {
-                        return <input type="radio" name="damage" value={key}/>
-                    })
-                }
+                    {
+                        Object.keys(Damage).map((key, index) => {
+                            return <input type="radio" name="damage" value={key}/>
+                        })
+                    }
                 </select>
             </div>
             <div>
@@ -113,5 +113,5 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
         );
     }
 }
- 
+
 export default CharacterAction;

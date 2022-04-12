@@ -1,13 +1,12 @@
+import './CharacterSheet.css'
 import React, {Component} from "react";
-import './characterComponents/character.css'
-import './components/components.css'
-import {Ability, CharacterAbilities, CharacterActionType, DamageType, MainStats, Stat} from "./Structs";
-import StatCard from './components/StatCard'
-import HPCard from "./components/HealthCard";
-import PropsCard from "./components/PropsCard"
-import {CharacterTabs} from"./components/TabNavigation";
-import ActionCard, { CharacterActionInterface } from "./characterComponents/ActionCard"
-import Character, { CharacterState } from "./Character";
+import StatCard from '../characterComponents/StatCard'
+import HPCard from "../characterComponents/HealthCard";
+import PropsCard from "../characterComponents/PropsCard"
+import {CharacterTabs} from "../characterComponents/CharacterTabs";
+import ActionCard, { CharacterActionInterface } from "../characterComponents/ActionCard"
+import CharacterSheetInterface, { CharacterState } from "./CharacterSheetInterface";
+import {Ability, CharacterAbilities, CharacterActionType, DamageType, MainStats, Stat} from "../Structs";
 
 class CharacterSheet extends Component {
     constructor(props: CharacterState) {
@@ -15,22 +14,23 @@ class CharacterSheet extends Component {
     }
 
     componentDidMount() {
-        
+
     }
 
-    render() { 
-        return (        
+    render() {
+        return (
             <div className="sheet-container">
-                <CharacterView { ... this.props as CharacterState  } />
+                <CharacterView {...this.props as CharacterState} />
                 <div className="navigation-container">
-                    <CharacterTabs { ... this.props as CharacterState } />
+                    <CharacterTabs {...this.props as CharacterState} />
                 </div>
-            </div> );
+            </div>
+        );
     }
 }
 
 export const CharacterView = (props: CharacterState) => {
-    
+
     const character  = props;
     const stats = character.stats;
     const actions = character.actions;
@@ -49,55 +49,49 @@ export const CharacterView = (props: CharacterState) => {
         );
     }
 
-    
+
     return (
         <div className="header">
             <div className="name-card">
-                <img src="./assets/defIcon.png" className="icon-img" alt="" />
+                <img src="./assets/defIcon.png" className="icon-img" alt=""/>
                 <text>{props.name}</text>
                 <text>{props.characterClass}</text>
                 <text>{props.level}</text>
-
             </div>
             <div className="info-container">
                 <div className="details-container">
                     <div className="info-details">
-                        <text> Race </text>
+                        <text> Race</text>
                         <text>SubClass 1</text>
                     </div>
                     <div className="info-details">
-                        <text> Background </text>
+                        <text> Background</text>
                         <text>Alignment</text>
                     </div>
                     <div className="info-details">
-                        <text> Experience </text>
+                        <text> Experience</text>
                         <text>{props.XP}</text>
                     </div>
                     <div className="info-details">
-                        <text> Proficiency </text>
+                        <text> Proficiency</text>
                         <text>{props.proficiencies.bonus}</text>
                     </div>
                     <div className="info-details">
-                        <text> Speed </text>
+                        <text> Speed</text>
                         <text>{props.speed}</text>
                     </div>
                     <div className="info-details">
-                        <text> Initiative </text>
+                        <text> Initiative</text>
                         <text>{props.initiative}</text>
                     </div>
                 </div>
                 <div className="stat-container">
-                        {
-                            characterStats(props.stats)
-                        }
-                        <HPCard current={props.HP} max={props.HP} tmp={0}/>
-                        <PropsCard label={"AC"} value={props.AC}/>
+                    {characterStats(props.stats)}
+                    <HPCard current={props.HP} max={props.HP} tmp={0}/>
+                    <PropsCard label={"AC"} value={props.AC}/>
                 </div>
-
             </div>
-            
         </div>
-
     )
 }
 
