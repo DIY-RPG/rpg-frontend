@@ -82,7 +82,6 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
                 </div>
             </div>
         </div>
-
         );
     }
 }

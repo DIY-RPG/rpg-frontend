@@ -53,35 +53,35 @@ export const CharacterView = (props: CharacterState) => {
         <div className="header">
             <div className="name-card">
                 <img src="./assets/defIcon.png" className="icon-img" alt=""/>
-                <text>{props.name}</text>
-                <text>{props.characterClass}</text>
-                <text>{props.level}</text>
+                <label>{props.name}</label>
+                <label>{props.characterClass}</label>
+                <label>{props.level}</label>
             </div>
             <div className="info-container">
                 <div className="details-container">
                     <div className="info-details">
-                        <text> Race</text>
-                        <text>SubClass 1</text>
+                        <label> Race</label>
+                        <label>SubClass 1</label>
                     </div>
                     <div className="info-details">
-                        <text> Background</text>
-                        <text>Alignment</text>
+                        <label> Background</label>
+                        <label>Alignment</label>
                     </div>
                     <div className="info-details">
-                        <text> Experience</text>
-                        <text>{props.XP}</text>
+                        <label> Experience</label>
+                        <label>{props.XP}</label>
                     </div>
                     <div className="info-details">
-                        <text> Proficiency</text>
-                        <text>{props.proficiencies.bonus}</text>
+                        <label> Proficiency</label>
+                        <label>{props.proficiencies.bonus}</label>
                     </div>
                     <div className="info-details">
-                        <text> Speed</text>
-                        <text>{props.speed}</text>
+                        <label> Speed</label>
+                        <label>{props.speed}</label>
                     </div>
                     <div className="info-details">
-                        <text> Initiative</text>
-                        <text>{props.initiative}</text>
+                        <label> Initiative</label>
+                        <label>{props.initiative}</label>
                     </div>
                 </div>
                 <div className="stat-container">

@@ -6,9 +6,9 @@ export const PropsCard = (props: any) => {
 
     return (
        <div className="props-card">
-           <text>{props.label}</text>
+           <label>{props.label}</label>
            <div className="props-value">
-               <text>{props.value}</text>
+               <label>{props.value}</label>
             </div>
        </div>
     );

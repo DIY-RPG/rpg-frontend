@@ -6,12 +6,12 @@ export const StatCard = (props:Ability) => {
 
     return (
        <div className="stat-card">
-           <text>{props.label}</text>
+           <label>{props.label}</label>
            <div className="stat-value">
-               <text>{props.value}</text>
+               <label>{props.value}</label>
             </div>
             <div className="stat-mod">
-                <text>{props.modifier}</text>
+                <label>{props.modifier}</label>
             </div>
        </div>
     );

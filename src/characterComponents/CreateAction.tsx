@@ -61,12 +61,10 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
             <div>
                 <label>Type:</label>
                 <select>
-                    {
-                        CharacterActions.map((key) => {
-                                return <option value={key}>{key}</option>
-                            }
-                        )
-                    }
+                    {CharacterActions.map((key) => {
+                            return <option value={key}>{key}</option>
+                        }
+                    )}
                 </select>
             </div>
             <div>
@@ -85,23 +83,19 @@ export class CharacterAction extends React.Component<any, CharacterActionInterfa
             <div>
                 <label>Ability:</label>
                 <select>
-                    {
-                        MainStats.map((key) => {
-                                return <option value={key}>{key}</option>
-                            }
-                        )
-                    }
+                    {MainStats.map((key) => {
+                            return <option value={key}>{key}</option>
+                        }
+                    )}
                 </select>
             </div>
             <div>
                 <label>Damage:</label>
                 <select>
-                    {
-                        Damage.map((key) => {
-                                return <option value={key}>{key}</option>
-                            }
-                        )
-                    }
+                    {Damage.map((key) => {
+                            return <option value={key}>{key}</option>
+                        }
+                    )}
                 </select>
             </div>
             <div>
