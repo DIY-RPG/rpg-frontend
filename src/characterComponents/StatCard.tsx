@@ -1,6 +1,8 @@
 import React from "react";
 import {Ability} from "../Structs"
-import './StatCard.css'
+// import './StatCard.css'
+import "../Styles.css";
+
 
 export const StatCard = (props:Ability) => {
 

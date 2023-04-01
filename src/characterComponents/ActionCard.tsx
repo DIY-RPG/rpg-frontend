@@ -1,6 +1,7 @@
 import React from 'react';
 import {Ability, CharacterAbilities, CharacterActions, CharacterActionType, Damage, DamageType, MainStats} from '../Structs';
-import './ActionCard.css'
+// import './ActionCard.css'
+import "../Styles.css";
 
 export interface CharacterActionInterface {
     name?: string;

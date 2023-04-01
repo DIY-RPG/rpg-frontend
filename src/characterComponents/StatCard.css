@@ -1,4 +1,4 @@
-.stat-card {
+/* .stat-card {
     border-radius: 15px;
     border-width: 4px;
     align-items:center;
@@ -63,4 +63,62 @@
 
     cursor: pointer;
     transition: all 0.25s ease;
-}
+} */
+.stat-card {
+    border-radius: 10px;
+    border: 2px solid #666;
+    width: 50px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4d4d4d;
+    }
+    
+    .stat-value {
+    border-radius: 10px;
+    border: 2px solid #666;
+    width: 50px;
+    height: 10px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .props-card {
+    border-radius: 10px;
+    border: 2px solid #666;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4d4d4d;
+    }
+    
+    .props-value {
+    border-radius: 10px;
+    border: 2px solid #666;
+    width: 80px;
+    height: 50px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    
+    .sec-button {
+    outline: none;
+    height: 20px;
+    text-align: center;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #666;
+    color: #666;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    }
