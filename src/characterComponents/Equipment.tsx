@@ -52,22 +52,34 @@ export const EquipmentItem = (props: any) => {
           <text id="type">{type}</text>
         </div>
         <div className="equipment-item-description">
+          <label htmlFor="description" className="equipment-item-label">
+            Description
+          </label>
           <text>{description}</text>
         </div>
         <div className="equipment-item-modifier">
+          <label htmlFor="modifier" className="equipment-item-label">
+            Modifier
+          </label>
           <text>{modifier.type}</text>
           <text>{modifier.value}</text>
         </div>
         <div className="equipment-item-weight">
+          <label htmlFor="weight" className="equipment-item-label">
+            Weight
+          </label>
           <text>{weight}</text>
         </div>
-        <div className="equipment-item-value">
-          <text>{value}</text>
-        </div>
         <div className="equipment-item-quantity">
+          <label htmlFor="quantity" className="equipment-item-label">
+            Quantity
+          </label>
           <text>{quantity}</text>
         </div>
         <div className="equipment-item-notes">
+          <label htmlFor="notes" className="equipment-item-label">
+            Notes
+          </label>
           <text>{notes}</text>
         </div>
       </div>
