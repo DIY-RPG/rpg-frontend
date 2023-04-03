@@ -14,6 +14,7 @@ import {
   Equipment,
 } from "../Structs";
 import CharacterEquipment from "../characterComponents/Equipment";
+import { Modifier } from "typescript";
 
 class Character extends Component<CharacterProps, CharacterState> {
   constructor(props: CharacterProps) {
@@ -61,6 +62,8 @@ export interface CharacterState {
     spellBonus: Number;
     other: Array<String>;
   };
+  currentModifiers?: Array<Modifier>;
+  dispatchModifiers?: (modifiers: any) => void;
   details: {
     subClass?: String;
     race?: String;
@@ -78,7 +81,6 @@ export interface CharacterState {
     flaws?: Array<string>;
     languages?: Array<string>;
     features?: Array<string>;
-    equipment?: Array<string>;
     defenses?: Array<string>;
     trackables?: Array<string>;
     currency?: Array<string>;

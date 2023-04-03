@@ -6,6 +6,11 @@ import {
   DamageType,
   MainStats,
   Stat,
+  Equipment,
+  Item,
+  Modifier,
+  Skill,
+  ModifierTypes,
 } from "../Structs";
 import StatCard from "../characterComponents/StatCard";
 import HPCard from "../characterComponents/HealthCard";
@@ -16,19 +21,81 @@ import ActionCard, {
 } from "../characterComponents/ActionCard";
 import Character, { CharacterState } from "./Character";
 
-class CharacterSheet extends Component {
+class CharacterSheet extends Component<CharacterState, CharacterState> {
   constructor(props: CharacterState) {
     super(props);
+    this.state = props;
   }
 
+  //Make a function to bind the equimpent modifiers to the character
+  dispatchModifiers = (modifiers: Array<Modifier>) => {
+    let equipment: Equipment = this.state.equipment;
+    // let modifiers: Array<Modifier> = [];
+
+    equipment.items.forEach((item: Item) => {
+      if (item.equipped) {
+        modifiers.push(item.modifier);
+      }
+    });
+
+    function isSkill(object: any): object is Skill {
+      return "stat" in object;
+    }
+
+    function isStat(object: any): object is Stat {
+      return "value" in object;
+    }
+
+    if (modifiers) {
+      modifiers.forEach((modifier: Modifier) => {
+        let modType: ModifierTypes = modifier.type;
+
+        switch (modType) {
+          case "AC":
+            modifier.value &&
+              this.setState({ AC: this.state.AC + modifier.value });
+            console.log("AC Modifier Applied");
+            break;
+          case "HP":
+            modifier.value &&
+              this.setState({ HP: this.state.HP + modifier.value });
+            break;
+          case "Skill":
+            if (isSkill(modifier)) {
+              let skill: Skill = modifier;
+              // modifier.value && this.setState({ skills : this.state.skills[skill.stat] + modifier.value });
+            }
+            break;
+        }
+      });
+    }
+  };
+
   componentDidMount() {}
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+    console.log(error, errorInfo);
+  }
+
+  componentDidUpdate(
+    prevProps: Readonly<CharacterState>,
+    prevState: Readonly<CharacterState>,
+    snapshot?: any
+  ): void {
+    console.log("Character Sheet Updated");
+    // this.addEquipmentModifiers();
+  }
 
   render() {
     return (
       <div className="sheet-container">
-        <CharacterView {...(this.props as CharacterState)} />
+        <CharacterView {...(this.state as CharacterState)} />
         <div className="navigation-container">
-          <CharacterTabs {...(this.props as CharacterState)} />
+          <CharacterTabs
+            {...(this.state as CharacterState)}
+            dispatchModifiers={this.dispatchModifiers}
+            currentModifiers={this.state.currentModifiers}
+          />
         </div>
       </div>
     );

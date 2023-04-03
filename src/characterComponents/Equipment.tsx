@@ -24,9 +24,9 @@ export const EquipmentItem = (props: any) => {
   let notes: string = item.notes;
 
   const [equippedState, setEquippedState] = React.useState(equipped);
-  useEffect(() => {
-    setEquippedState(equipped);
-  }, [equipped]);
+  // useEffect(() => {
+  //   setEquippedState(equipped);
+  // }, [equipped]);
 
   return (
     <div className="equipment-item">
@@ -39,10 +39,11 @@ export const EquipmentItem = (props: any) => {
             type="checkbox"
             name="equipped"
             onClick={() => {
-              props.equipAction(item);
+              item.equipped = !equippedState;
               setEquippedState(!equippedState);
+              props.equipAction(item);
             }}
-            checked={equippedState}
+            defaultChecked={equippedState}
           />
         </div>
         <div className="equipment-item-type">
@@ -89,7 +90,7 @@ export const EquipmentItem = (props: any) => {
 
 //Upgrade this to a class component for CharacterEquipment
 export default class CharacterEquipment extends React.Component<
-  Equipment,
+  any,
   Equipment
 > {
   constructor(props: Equipment) {
@@ -108,6 +109,7 @@ export default class CharacterEquipment extends React.Component<
   calculateWeight = () => {
     this.state.items.forEach((item: Item) => {
       if (item.equipped) this.totalWeight += item.weight;
+      // else this.totalWeight -= item.weight;
     });
     return this.totalWeight;
   };
@@ -121,45 +123,48 @@ export default class CharacterEquipment extends React.Component<
 
   applyModifier = (item: Item) => {
     let modifier: any = item.modifier;
-    let type: ModifierTypes = modifier.type;
-    let value: number = modifier.value ?? 0;
-    let modifiers: any = this.state.modifiers ?? [];
+    let currentModifiers: any = this.state.modifiers ?? [];
     modifier.item = item.name;
 
-    //If the item is equipped, add the modifier to the character's modifiers
-    if (item.equipped && !modifiers.includes(modifier)) {
-      modifiers.push(modifier);
-    } else {
-      modifiers.forEach((modifier: any, index: number) => {
-        if (modifier.type === type) modifiers.splice(index, 1);
+    if (item.equipped && !currentModifiers.includes(modifier)) {
+      currentModifiers.push(modifier);
+    } else if (!item.equipped && currentModifiers.includes(modifier)) {
+      currentModifiers.forEach((mod: any, index: number) => {
+        if (mod === modifier) currentModifiers.splice(index, 1);
       });
     }
-
-    console.log(modifiers);
   };
 
   equipAction = (item: Item) => {
     let equipped: boolean = item.equipped.valueOf();
-    // item.equipped = equipped;
     let name: string = item.name;
-    equipped && this.applyModifier(item);
-    this.setState({
-      items: this.state.items,
-    });
+    this.applyModifier(item);
+    //Remove weight if item is unequipped
+    if (!equipped) this.totalWeight -= item.weight;
+    else this.totalWeight += item.weight;
+    this.dispatchState();
   };
 
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
-    console.log(error);
-    console.log(errorInfo);
+  componentWillMount(): void {
+    this.calculateWeight();
+    this.getModifiers();
   }
 
   componentDidUpdate(
     prevProps: Readonly<Equipment>,
     prevState: Readonly<Equipment>,
     snapshot?: any
-  ): void {
-    console.log("Equipment Updated");
+  ): void {}
+
+  componentDidCatch(error: Error, errorInfo: React.ErrorInfo): void {
+    console.log(error);
+    console.log(errorInfo);
   }
+
+  //Pass state to parent component
+  dispatchState = () => {
+    this.props.updateEquipment(this.state);
+  };
 
   render() {
     return (
@@ -189,9 +194,7 @@ export default class CharacterEquipment extends React.Component<
           </div>
           <div className="equipment-weight">
             <text>Weight: </text>
-            <text className="equipment-weight-value">
-              {this.calculateWeight()}
-            </text>
+            <text className="equipment-weight-value">{this.totalWeight}</text>
           </div>
           <div className="equipment-money">
             <text>Money: </text>
@@ -222,8 +225,6 @@ export default class CharacterEquipment extends React.Component<
                 equipped={item.equipped}
               />
             );
-
-            // <EquipmentItem item={item} equipAction={this.equipAction} />;
           })}
         </div>
       </div>

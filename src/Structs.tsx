@@ -355,8 +355,7 @@ export interface Modifier {
 export type ModifierTypes =
   | "AC"
   | "Attack"
-  | "Damage"
-  | "Healing"
+  | "HP"
   | "Saving Throw"
   | "Skill"
   | "Ability"

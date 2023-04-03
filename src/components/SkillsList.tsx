@@ -19,7 +19,13 @@ export const SkillCard = (props: Skill) => {
   return (
     <div className="skill-card">
       <div className="skill-proficiency">
-        <input type="radio" checked={proficiency} />
+        <input
+          type="radio"
+          checked={proficiency}
+          onChange={() => {
+            console.log("Proficiency Changed");
+          }}
+        />
       </div>
       <div className="skill-value">
         <text>{modifier}</text>
